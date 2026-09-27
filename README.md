@@ -6,7 +6,7 @@
 
 Reverse a Roblox game fast. Spy on its remotes and get every call back as **runnable Lua**, query the DataModel without writing loops, and snapshot → diff to see exactly what a game changed
 
-Three things you do constantly when reversing a game, in one small library
+Three things you do constantly when reversing a game, in one small library (I recommend using an Adonis Bypasser just in case)
 
 ## Load it
 
