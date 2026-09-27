@@ -6,7 +6,7 @@
 
 Reverse a Roblox game fast. Spy on its remotes and get every call back as **runnable Lua**, query the DataModel without writing loops, and snapshot → diff to see exactly what a game changed
 
-Three things you do constantly when reversing a game, in one small library.
+Three things you do constantly when reversing a game, in one small library
 
 ## Load it
 
@@ -16,7 +16,7 @@ local R = loadstring(game:HttpGet("https://raw.githubusercontent.com/SkinWalkeCl
 
 ## Remote spy
 
-Hook every remote the client fires and read them as copy-paste code:
+Hook every remote the client fires and read them as copy paste code:
 
 ```lua
 R.spy.start()
@@ -63,7 +63,7 @@ R.q(workspace, {                        -- combine anything
 
 ## Snapshot → diff
 
-See what a game does under the hood: snapshot, trigger something, snapshot again, diff.
+See what a game does under the hood: snapshot, trigger something, snapshot again, diff
 
 ```lua
 local before = R.snapshot(workspace)
@@ -76,18 +76,18 @@ R.printDiff(R.diff(before, after))
 -->   ~ Workspace.Door.CanCollide: true -> false
 ```
 
-`R.diff` returns `{ added, removed, changed }` if you want to handle it yourself. Pass your own property list to `R.snapshot(root, { "Health", "CFrame" })` to focus the diff.
+`R.diff` returns `{ added, removed, changed }` if you want to handle it yourself. Pass your own property list to `R.snapshot(root, { "Health", "CFrame" })` to focus the diff
 
 ## Requirements
 
-- **Spy**: needs `hookmetamethod`, or `getrawmetatable` + `setreadonly` (any half-decent executor has these). If they're missing, `R.spy.start()` returns `false, reason` instead of erroring.
-- **Query / snapshot / diff**: pure Lua, work anywhere (even off Roblox — the whole logic core is tested against a mock runtime).
+- **Spy**: needs `hookmetamethod`, or `getrawmetatable` + `setreadonly` (any half-decent executor has these). If they're missing, `R.spy.start()` returns `false, reason` instead of erroring	
+- **Query / snapshot / diff**: pure Lua, work anywhere (even off Roblox — the whole logic core is tested against a mock runtime)
 
 ## Limits
 
 - The spy captures **outgoing** calls (`FireServer` / `InvokeServer`) — what your client sends. Server → client (`FireClient`) isn't hooked in v0.1.
 - Snapshots key instances by `GetFullName`, so two siblings with the same name can collide in a diff. Rename or scope your root if that bites you.
-- The dumper can't serialize functions or userdata it doesn't recognize; those come out as a `nil --[[type]]` marker.
+- The dumper can't serialize functions or userdata it doesn't recognize; those come out as a `nil --[[type]]` marker
 
 ## License
 
