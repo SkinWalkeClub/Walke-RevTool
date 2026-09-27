@@ -1,4 +1,4 @@
--- revtool: reverse a roblox game fast. spy on remotes and export the calls as
+-- revtool, reverse a roblox game FAST, spy on remotes and export the calls as
 -- runnable lua, query the datamodel, snapshot and diff what changed. mit.
 
 local R = {}
@@ -83,7 +83,7 @@ local function dump(v, seen, d)
 end
 R.dump = dump
 
--- remote spy
+-- da remote spy boiiiiiiiiiiiiii
 local spy = { log = {}, ignore = {}, max = 500, onCall = nil, hooked = false }
 R.spy = spy
 
@@ -156,7 +156,7 @@ function spy.start()
 	return true
 end
 
--- datamodel query
+-- the datamodel query
 local function match(o, f)
 	if f.class and not o:IsA(f.class) then return false end
 	if f.name and o.Name ~= f.name then return false end
